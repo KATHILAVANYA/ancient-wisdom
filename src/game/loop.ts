@@ -116,7 +116,7 @@ export function useGameFrame(cb: (dt: number, t: number) => void): void {
   }
 
   useFrame((s, delta) => {
-    if (state.phase !== 'playing') return;
+    // SimulationDriver controls whether the simulation is running.
     cb(Math.min(delta, MAX_STEP_S), s.clock.elapsedTime);
     clearPresses();
   });
